@@ -60,6 +60,7 @@ class DynamodbLocal < Formula
       <array>
         <string>#{opt_bin}/dynamodb-local</string>
         <string>-sharedDb</string>
+        <string>-delayTransientStatuses</string>
       </array>
       <key>StandardErrorPath</key>
       <string>#{log_path}</string>
