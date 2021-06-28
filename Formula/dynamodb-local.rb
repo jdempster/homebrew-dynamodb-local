@@ -17,7 +17,7 @@ class DynamodbLocal < Formula
 
   def bin_wrapper; <<~EOS
     #!/bin/sh
-    cd #{data_path} && exec java -Djava.library.path=#{libexec}//DynamoDBLocal_lib -jar #{libexec}/DynamoDBLocal.jar "$@"
+    cd #{data_path} && exec java -Djava.library.path=#{libexec}/DynamoDBLocal_lib -jar #{libexec}/DynamoDBLocal.jar "$@"
     EOS
   end
 
