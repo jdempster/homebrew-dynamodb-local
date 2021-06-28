@@ -4,6 +4,7 @@ class DynamodbLocal < Formula
   homepage "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.DynamoDBLocal.html"
   head "https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz"
 
+  sha256 :no_check
   bottle :unneeded
 
   def data_path
@@ -16,12 +17,12 @@ class DynamodbLocal < Formula
 
   def bin_wrapper; <<~EOS
     #!/bin/sh
-    cd #{data_path} && exec java -Djava.library.path=#{libexec}/DynamodbLocal_lib -jar #{libexec}/DynamoDBLocal.jar "$@"
+    cd #{data_path} && exec java -Djava.library.path=#{libexec}//DynamoDBLocal_lib -jar #{libexec}/DynamoDBLocal.jar "$@"
     EOS
   end
 
   def install
-    prefix.install %w[LICENSE.txt README.txt third_party_licenses]
+    prefix.install %w[LICENSE.txt README.txt THIRD-PARTY-LICENSES.txt]
     libexec.install %w[DynamoDBLocal_lib DynamoDBLocal.jar]
     (bin/"dynamodb-local").write(bin_wrapper)
   end
